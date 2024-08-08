@@ -17,5 +17,15 @@ services:
     volumes:
       - ./:/usr/share/app
 
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    networks:
+      - satellite-core
+    ports:
+      - 8001:80
+    environment:
+      - PMA_ARBITRARY=1
+
 networks:
   satellite-core: {}
